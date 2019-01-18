@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>League Voice</title>
+    <link rel="stylesheet" type="text/css" href="static/app.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            max-width: 800px;
+            margin: auto;
+            overflow-x: hidden;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-image: url('./static/background.jpg');
+        }
+
+        .nunito {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200;
+        }
+
+        .main-block {
+            max-width: 480px;
+            margin: auto;
+        }
+
+        .title-box {
+            padding-bottom: 40px;
+        }
+
+        .quote-box {
+            padding: .5rem 1rem;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            border-radius: .3rem
+        }
+
+        .log-block {
+            max-width: 680px;
+            margin: auto;
+        }
+
+        .bg-lol {
+            background-color: #c9aa71 !important;
+        }
+
+        .border-lol {
+            border-color: #c9aa71 !important;
+        }
+
+        .text-lol {
+            color: #c8aa6e !important;
+        }
+    </style>
+</head>
+
+<body>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="main-block">
+            <div id="attach-alerts">
+
+            </div>
+
+            <div class="container title-box">
+                <h1 class="text-center text-lol nunito">League Voice</h1>
+
+                <p class="text-lol">League Voice was created under Riot Games' "Legal Jibber Jabber" policy using assets
+                    owned by Riot Games. Riot Games does not endorse or sponsor this project.</p>
+
+                <hr class="bg-lol">
+            </div>
+
+            <div class="container title-box">
+                <h4 class="text-center nunito text-lol">Actions</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" id="action-startup"
+                                class="btn text-lol btn-lg btn-block bg-transparent border border-lol text-center">Start
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" id="action-link"
+                                class="btn text-lol btn-lg btn-block bg-transparent border border-lol text-center">Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container title-box">
+                <div id="attach-event" class="border text-lol border-lol quote-box">
+                    Latest notice:
+                </div>
+            </div>
+
+            <div class="container">
+                <h4 class="text-center text-lol nunito">Log</h4>
+                <hr class="bg-lol">
+            </div>
+        </div>
+
+        <div class="col-sm-12 log-block">
+            <div id="attach-log" class="text-lol"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+
+    /**
+     * =================================================
+     *                    SETUP APP
+     * =================================================
+     */
+    const App = require('./static/index');
+    const app = new App();
+
+    let link = document.getElementById('action-link');
+    let start = document.getElementById('action-startup');
+    let box = document.getElementById('attach-event');
+    let logbox = document.getElementById('attach-log');
+    let running = false;
+
+    /**
+     * =================================================
+     *                  HELPER FUNCTIONS
+     * =================================================
+     */
+    const log = msg => { logbox.innerHTML += `[${now()}]: ${msg}<br>` };
+    const note = msg => { box.innerHTML = msg };
+    const now = () => { let time = new Date(); return `${(time.getHours() < 10 ? '0' : 0) + time.getHours()}:${(time.getMinutes() < 10 ? '0' : 0) + time.getMinutes()}:${(time.getSeconds() < 10 ? '0' : 0) + time.getSeconds()}`; };
+
+    /**
+     * =================================================
+     *               DOM EVENT LISTENERS
+     * =================================================
+     */
+    start.addEventListener('click', () => {
+        start.disabled = true;
+        app.connect()
+            .then((res) => {
+                if (!res) return start.disabled = false;
+                running = true;
+                app.boot();
+                app.events();
+            })
+    });
+
+    link.addEventListener('click', () => {
+        if (running) {
+            link.disabled = true;
+            app.link()
+                .then((res) => {
+                    if (!res) link.disabled = false;
+                })
+        } else {
+            note("The app needs to be running.");
+            log(`Error: The app is currently not running.`);
+        }
+    });
+
+    /**
+     * =================================================
+     *              WS EVENT LISTENERS
+     * =================================================
+     */
+    app.on('log', (msg) => {
+        log(msg)
+    });
+
+    app.on('notice', (msg) => {
+        note(msg);
+    });
+    
+</script>
+
+</html>

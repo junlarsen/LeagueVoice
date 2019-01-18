@@ -1,0 +1,27 @@
+{
+  "name": "google-select",
+  "version": "1.0.0",
+  "description": "Use a Google Assistant for your Champion Select",
+  "main": "./web/app.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "firebase-admin": "^6.5.0",
+    "lcu-connector": "^1.0.0",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
+    "ws": "^6.1.2",
+    "firebase": "^5.8.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "install": "npm rebuild --runtime=electron --target=3.0.0 --dist-url=https://atom.io/download/electron"
+  },
+  "build": {
+    "productName": "Google Select",
+    "appId": "com.google-select"
+  },
+  "devDependencies": {
+    "electron": "3.0.0"
+  }
+}
