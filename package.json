@@ -1,5 +1,5 @@
 {
-  "name": "google-select",
+  "name": "league-voice",
   "version": "1.0.0",
   "description": "Use a Google Assistant for your Champion Select",
   "main": "./web/app.js",
