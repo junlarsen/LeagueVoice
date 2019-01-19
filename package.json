@@ -2,9 +2,22 @@
   "name": "league-voice",
   "version": "1.0.0",
   "description": "Use a Google Assistant for your Champion Select",
-  "main": "./web/app.js",
-  "author": "",
+  "keywords": ["league of legends", "actions on google", "lol", "champ select", "league client"],
+  "homepage": "https://github.com/supergrecko/LeagueVoice",
+  "bugs": {
+    "url": "https://github.com/supergrecko/LeagueVoice/issues",
+    "email": "greckobusiness@gmail.com"
+  },
   "license": "MIT",
+  "main": "./web/app.js",
+  "contributors": [
+    {
+      "name": "supergrecko",
+      "email": "greckobusiness@gmail.com",
+      "url": "https://supergrecko.com"
+    }
+  ],
+  "repository": "github:supergrecko/leaguevoice",
   "dependencies": {
     "firebase-admin": "^6.5.0",
     "lcu-connector": "^1.0.0",
@@ -13,13 +26,14 @@
     "ws": "^6.1.2",
     "firebase": "^5.8.0"
   },
+  "os": ["win32"],
   "scripts": {
     "start": "electron .",
     "install": "npm rebuild --runtime=electron --target=3.0.0 --dist-url=https://atom.io/download/electron"
   },
   "build": {
-    "productName": "Google Select",
-    "appId": "com.google-select"
+    "productName": "LeagueVoice",
+    "appId": "com.league-voice"
   },
   "devDependencies": {
     "electron": "3.0.0"
