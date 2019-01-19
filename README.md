@@ -8,7 +8,7 @@ Manage champion select with the power of your voice!
 
 ## Installation
 
-For regular users, head over to the [releases](/releases) tab and download the win32.zip file. This file contains everything you need to run League Voice.
+For regular users, head over to the [releases](https://github.com/supergrecko/LeagueVoice/releases) tab and download the win32.zip file. This file contains everything you need to run League Voice.
 
 For developers, clone this repository using git and run these commands.
 
@@ -27,17 +27,43 @@ The requirements to use League Voice are listed here.
 
 #### Releases
 
-The releases can be found [here](/releases). League Voice follows the semvar standard.
+The releases can be found [here](https://github.com/supergrecko/LeagueVoice/releases). League Voice follows the semvar standard.
 
 ## Overview
 
-#### Usage
+#### What is League Voice?
+
+#### How do I use League Voice?
+
+###### Linking accounts
+
+###### Making commands
 
 #### Troubleshooting
 
+###### Common Issues
+
+> Doesn't pick or ban my intended champion
+
+The application needs to be running (you can start the app by clicking the "Start" button). 
+
+Your League accounts needs to be linked with a Google Account. This procedure can be started by clicking the "Link" button and telling your Google Assistant to link your accounts.
+
+If your intended champion has been picked or banned the assistant will not perform any action.
+
+> Doesn't start upon pressing start
+
+If you recently restarted your League Client make sure to restart your League Voice application as well.
+
+###### Still having issues?
+
+If your issue is not addressed in the Common Issues article and if you can't resolve any of the error messages you can report this error by submitting an issue.
+
+Before sending your issue, make sure it hasn't already been addressed in the issues list. You can check the issues [here](https://github.com/supergrecko/LeagueVoice/issues) 
+
 ## Legal
 
-#### Storage of information
+#### Data Policies
 
 League Voice stores certain pieces of data to make the application function.
 
@@ -47,17 +73,9 @@ By using League Voice you agree to allowing us to store these pieces of informat
 - League of Legends PUUID (An internal ID)
 - Google Account ID
 
-###### Summoner Name
+We use this data to link your Google account with your League of Legends account. This data is not shared with any third-party.
 
-We stored the summoner name so we can both verify and reference to you by a name.
-
-###### PUUID
-
-A PUUID is an ID used by Riot internally to have a universially unique identifier for accounts. We use this ID to link your League account with your Google account.
-
-###### Google ID
-
-A Google ID is an ID used by Google to identify accounts. Combined with the PUUID we have a way to link accounts to eachother.
+We need to collect this data to authenticate you so the client receives the correct data. This also prevents other users from interacting with your client.
 
 #### License
 
