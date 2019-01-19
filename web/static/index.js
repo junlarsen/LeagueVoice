@@ -22,21 +22,25 @@ class Application extends Events {
      */
     connect() {
         return new Promise(async (resolve, reject) => {
-            this.League.listen.update('clientStates', 'selection', {
-                banChampion: "", banState: "NOT", origin: "EXIT", phase: "NOT",
-                primary: "", secondary: "", selectChampion: "", state: "NOT"
-            }).then(() => {
-                this.League.start()
-                    .then((res) => {
-                        if (res === true) {
-                            this.emit('log', `Success: Started application.`);
-                            resolve(true);
-                        } else {
-                            this.emit('log', `Error: ${res}`);
-                            resolve(false);
-                        }
-                    })
-            });
+            this.League.start()
+                .then((res) => {
+                    if (res === true) {
+                        this.League.listen.update('clientStates', 'selection', {
+                            banChampion: "", banState: "NOT", origin: "EXIT", phase: "NOT",
+                            primary: "", secondary: "", selectChampion: "", state: "NOT"
+                        })
+                            .then(() => {
+                                this.emit('log', `Success: Started application.`);
+                                resolve(true);
+                            })
+                            .catch(reject)
+                    } else {
+                        reject(res);
+                    }
+                })
+                .catch((err) => {
+                    reject(err);
+                })
         })
     }
 
@@ -214,7 +218,7 @@ class Application extends Events {
 
     /**
      * DoLivePick
-     * 
+     *
      * @param context
      */
     async livePick(context) {
@@ -246,13 +250,13 @@ class Application extends Events {
             })
             .catch((err) => {
                 /*typeof err === "object" ? null :*/
-                    this.emit('log', `Error: ${err}`);
+                this.emit('log', `Error: ${err}`);
             })
     }
-    
+
     /**
      * SetPrimarySpell
-     * 
+     *
      * @param context
      */
     async primarySpell(context) {

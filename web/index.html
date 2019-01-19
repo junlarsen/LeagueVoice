@@ -144,11 +144,15 @@
     start.addEventListener('click', () => {
         start.disabled = true;
         app.connect()
-            .then((res) => {
-                if (!res) return start.disabled = false;
+            .then(() => {
                 running = true;
                 app.boot();
                 app.events();
+            })
+            .catch((err) => {
+                start.disabled = false;
+                note(`${err}`);
+                log(`Error: ${err}`);
             })
     });
 
