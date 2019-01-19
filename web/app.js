@@ -7,8 +7,6 @@ const create = () => {
     frame.loadFile('./web/index.html');
 
     frame.setMenu(null);
-    frame.webContents.openDevTools();
-
     frame.on('closed', () => {
         frame = null;
     })
