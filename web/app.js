@@ -5,7 +5,7 @@ let frame;
 const create = () => {
     frame = new BrowserWindow({ width: 800, height: 600, title: "League Voice" });
     frame.loadFile('./web/index.html');
-
+    frame.webContents.openDevTools()
     frame.setMenu(null);
     frame.on('closed', () => {
         frame = null;

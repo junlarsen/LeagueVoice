@@ -33,6 +33,8 @@ The releases can be found [here](https://github.com/supergrecko/LeagueVoice/rele
 
 #### What is League Voice?
 
+League Voice is an application to connect your League of Legends champion select to your Google Assistant.
+
 #### How do I use League Voice?
 
 ###### Linking accounts

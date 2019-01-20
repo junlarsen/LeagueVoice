@@ -25,15 +25,25 @@ class Application extends Events {
             this.League.start()
                 .then((res) => {
                     if (res === true) {
-                        this.League.listen.update('clientStates', 'selection', {
-                            banChampion: "", banState: "NOT", origin: "EXIT", phase: "NOT",
-                            primary: "", secondary: "", selectChampion: "", state: "NOT"
-                        })
-                            .then(() => {
-                                this.emit('log', `Success: Started application.`);
-                                resolve(true);
+                        this.League.link.link()
+                            .then(linked => {
+                                if (!linked) {
+                                    this.League.listen.update('clientStates', 'selection', {
+                                        banChampion: "", banState: "NOT", origin: "EXIT", phase: "NOT",
+                                        primary: "", secondary: "", selectChampion: "", state: "NOT"
+                                    })
+                                        .then(() => {
+                                            this.emit('log', `Success: Started application.`);
+                                            resolve(true);
+                                        })
+                                        .catch(reject)
+                                } else {
+                                    this.emit('log', `Success: Started application.`);
+                                    this.emit('log', `Notice: You need to link your accounts to use League Voice.`);
+                                    resolve(true);
+                                }
                             })
-                            .catch(reject)
+                            .catch(reject);
                     } else {
                         reject(res);
                     }
@@ -63,6 +73,7 @@ class Application extends Events {
                         resolve(true);
                     }
                 })
+                .catch(reject)
         })
     }
 
@@ -186,13 +197,14 @@ class Application extends Events {
      */
     async futurePick(context) {
         this.Google.act(context.stash.selectChampion)
-            .catch((err) => {
-                typeof err === "object" ? null : this.emit('log', `Error: ${err}`);
-            })
             .then(() => {
                 this.emit('log', `Action: I picked ${context.stash.selectChampion} for you.`);
             })
             .then(() => {
+                this.League.listen.update('clientStates', 'selection', {selectChampion: ""});
+            })
+            .catch((err) => {
+                typeof err === "object" ? null : this.emit('log', `Error: ${err}`);
                 this.League.listen.update('clientStates', 'selection', {selectChampion: ""});
             })
     }
@@ -204,13 +216,14 @@ class Application extends Events {
      */
     async futureBan(context) {
         this.Google.act(context.stash.banChampion)
-            .catch((err) => {
-                typeof err === "object" ? null : this.emit('log', `Error: ${err}`);
-            })
             .then(() => {
                 this.emit('log', `Action: I banned ${context.stash.banChampion} for you.`);
             })
             .then(() => {
+                this.League.listen.update('clientStates', 'selection', {banChampion: ""});
+            })
+            .catch((err) => {
+                typeof err === "object" ? null : this.emit('log', `Error: ${err}`);
                 this.League.listen.update('clientStates', 'selection', {banChampion: ""});
             })
     }
