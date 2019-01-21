@@ -35,7 +35,19 @@ The releases can be found [here](https://github.com/supergrecko/LeagueVoice/rele
 
 League Voice is an application to connect your League of Legends champion select to your Google Assistant.
 
+We create a real-time connection between the League Client and the Google Assistant. Every time you tell the assistant to do something, we let the League Client know what to do.
+
 #### How do I use League Voice?
+
+To use League Voice you need to link your League account to a Google account. This can be done by pressing the "Link" button and asking your Google Assistant to link your accounts.
+
+A more detailed explanation about the linking process can be found [here](#Linking-accounts)
+
+---
+
+When you've linked your accounts you'll be able to use League Voice. Simply enter champion select and tell your assistant to do some actions. 
+
+A more detailed explanation about using the assitant can be found [here](#Making-commands)
 
 ###### Linking accounts
 
