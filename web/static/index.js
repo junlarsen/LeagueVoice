@@ -206,6 +206,7 @@ class Application extends Events {
             .catch((err) => {
                 typeof err === "object" ? null : this.emit('log', `Error: ${err}`);
                 this.League.listen.update('clientStates', 'selection', {selectChampion: ""});
+                this.onDoPick();
             })
     }
 
@@ -225,6 +226,7 @@ class Application extends Events {
             .catch((err) => {
                 typeof err === "object" ? null : this.emit('log', `Error: ${err}`);
                 this.League.listen.update('clientStates', 'selection', {banChampion: ""});
+                this.onDoBan();
             })
     }
 

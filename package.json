@@ -2,7 +2,13 @@
   "name": "league-voice",
   "version": "1.0.0",
   "description": "Use a Google Assistant for your Champion Select",
-  "keywords": ["league of legends", "actions on google", "lol", "champ select", "league client"],
+  "keywords": [
+    "league of legends",
+    "actions on google",
+    "lol",
+    "champ select",
+    "league client"
+  ],
   "homepage": "https://github.com/supergrecko/LeagueVoice",
   "bugs": {
     "url": "https://github.com/supergrecko/LeagueVoice/issues",
@@ -26,7 +32,9 @@
     "ws": "^6.1.2",
     "firebase": "^5.8.0"
   },
-  "os": ["win32"],
+  "os": [
+    "win32"
+  ],
   "scripts": {
     "start": "electron .",
     "install": "npm rebuild --runtime=electron --target=3.0.0 --dist-url=https://atom.io/download/electron"
