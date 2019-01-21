@@ -38,6 +38,9 @@ The releases can be found [here](https://github.com/supergrecko/LeagueVoice/rele
     - [Linking accounts](#linking-accounts)
     - [Making commands](#making-commands)
 - [Command List](#command-list)
+    - [Pick a champion](#pick-a-champion)
+    - [Ban a champion](#ban-a-champion)
+    - [Change summoner spells](#change-summoner-spells)
 - [Troubleshooting](#troubleshooting)
     - [Common Issues](#common-issues)
     - [Still having issues?](#still-having-issues)
@@ -74,17 +77,86 @@ The linking of accounts is a three-step procedure.
 1. Click the "Link" button on the League Voice app.
 1. Tell your assistant the generated phrase that appears on-screen.
 
+Sample Conversation can look a little like this.
+
+> \> Hey google, talk to League Voice.\
+\< Greetings Summoner. Please complete the pre-link phase via your league of legends client first. After you have completed that step. Just ask me to link accounts to finish.\
+\> Hey google, link my accounts.
+\< Please input your pass phrase 
+
+Click the "Link" button on the application to get the generated phrase.
+
+> \> \<Phrase from app\>\
+\< Your accounts should be linked. You may now start using the League Voice app.
+
 ###### Making commands
+
+You can tell the Google Assistant to perform actions on your League Client for you.
+
+Every time you want to talk to League Voice you must let the Assistant know you are talking to the app by saying:
+
+> Hey google, talk to League Voice.
 
 #### Command List
 
 The amount of Client support for the League Assistant is currently limited (due to this being a submission for the Riot API challenge). It currently only supports very basic features. If you have any requests for future ideas, please submit an issue with your feature request and we will review it.
 
-- [Pick a champion]
-- [Ban a champion]
-- [Change summoner spells]
+- [Pick a champion](#pick-a-champion)
+- [Ban a champion](#ban-a-champion)
+- [Change summoner spells](#change-summoner-spells)
+
+###### Pick a champion
+
+You can use the assistant to select a champion for you. Simply tell it to pick a champion, a conversation could look something like this:
+
+> \> Hey google, talk to League Voice.\
+\< Welcome back \<Your Summoner Name\>\
+\> Hey google, pick \<Champion\>.\
+\< I will attempt to pick \<Champion\>.
+
+Remember that you need to be in champion select for this to function.
+
+> League Voice supports future picks
+
+If it is not your turn to select a champion you can still tell League Voice to pick for you. As soon as it is your turn to select a champion, League Voice will select it for you.
+
+If the intended champion was picked by anybody else, or if it was banned will League Voice will notice you on the application and you will be able to tell Google to pick for you again.
+
+###### Ban a champion
+
+
+You can use the assistant to ban a champion for you. Simply tell it to ban a champion, a conversation could look something like this:
+
+> \> Hey google, talk to League Voice\
+\< Welcome back \<Your Summoner Name\>\
+\> Hey google, ban \<Champion\>\
+\< I will attempt to ban \<Champion\>.
+
+Remember that you need to be in champion select for this to function.
+
+> League Voice supports future bans
+
+If it is not your turn to ban a champion you can still tell League Voice to ban for you. As soon as it is your turn to ban a champion, League Voice will ban it for you.
+
+If the intended champion was banned by anybody else will League Voice will notice you on the application and you will be able to tell Google to ban for you again.
+
+
+###### Change summoner spells
+
+The League Voice app can also change your summoner spells. Simply tell it which summoner spell to swap and the name of the summoner spell. Here's a sample conversation.
+
+League Voice identifies the two summoner spells by the names "primary" and "secondary". The primary summoner spell is the one which is bound to D by default. The secondary summoner spell is the one which is bound to F by default.
+
+> \> Hey google, talk to League Voice\
+\< Welcome back \<Your Summoner Name\>\
+\> Set \<Primary or Secondary\> summoner spell.\
+\< Which summoner spell do you want to select\
+\> \<Spell\>\
+\< Your summoner has been set.
 
 #### Troubleshooting
+
+If you are experiencing issues with League Voice, please read through the common issues. If you still can not resolve your issue by yourself, submit an issue as described [here](#still-having-issues)
 
 ###### Common Issues
 
