@@ -27,9 +27,24 @@ The requirements to use League Voice are listed here.
 
 #### Releases
 
-The releases can be found [here](https://github.com/supergrecko/LeagueVoice/releases). League Voice follows the semvar standard.
+The releases can be found [here](https://github.com/supergrecko/LeagueVoice/releases). League Voice follows the [semver](//semver.org) standard.
 
 ## Overview
+
+#### Table of Contents
+
+- [What is League Voice](#what-is-league-voice)
+- [How do I use League Voice](#how-do-i-use-league-voice)
+    - [Linking accounts](#linking-accounts)
+    - [Making commands](#making-commands)
+- [Command List](#command-list)
+- [Troubleshooting](#troubleshooting)
+    - [Common Issues](#common-issues)
+    - [Still having issues?](#still-having-issues)
+- [Legal](#legal)
+    - [Data Policies](#data-policies)
+    - [License](#license)
+    - [Riot Note](#riot-games)
 
 #### What is League Voice?
 
@@ -39,6 +54,8 @@ We create a real-time connection between the League Client and the Google Assist
 
 #### How do I use League Voice?
 
+First you need to add the League Voice app to your Google account. This can be done by following [this three-step guide by Google](https://support.google.com/googlehome/answer/7126338)
+
 To use League Voice you need to link your League account to a Google account. This can be done by pressing the "Link" button and asking your Google Assistant to link your accounts.
 
 A more detailed explanation about the linking process can be found [here](#Linking-accounts)
@@ -47,11 +64,25 @@ A more detailed explanation about the linking process can be found [here](#Linki
 
 When you've linked your accounts you'll be able to use League Voice. Simply enter champion select and tell your assistant to do some actions. 
 
-A more detailed explanation about using the assitant can be found [here](#Making-commands)
+A more detailed explanation about using the assistant can be found [here](#Making-commands)
 
 ###### Linking accounts
 
+The linking of accounts is a three-step procedure. 
+
+1. Request your assistant to begin linking your accounts.
+1. Click the "Link" button on the League Voice app.
+1. Tell your assistant the generated phrase that appears on-screen.
+
 ###### Making commands
+
+#### Command List
+
+The amount of Client support for the League Assistant is currently limited (due to this being a submission for the Riot API challenge). It currently only supports very basic features. If you have any requests for future ideas, please submit an issue with your feature request and we will review it.
+
+- [Pick a champion]
+- [Ban a champion]
+- [Change summoner spells]
 
 #### Troubleshooting
 
@@ -63,7 +94,7 @@ The application needs to be running (you can start the app by clicking the "Star
 
 Your League accounts needs to be linked with a Google Account. This procedure can be started by clicking the "Link" button and telling your Google Assistant to link your accounts.
 
-If your intended champion has been picked or banned the assistant will not perform any action.
+If your intended champion has been picked or banned the assistant will not perform any action and you will need to request it to pick/ban another champion.
 
 > Doesn't start upon pressing start
 
@@ -73,7 +104,7 @@ If you recently restarted your League Client make sure to restart your League Vo
 
 If your issue is not addressed in the Common Issues article and if you can't resolve any of the error messages you can report this error by submitting an issue.
 
-Before sending your issue, make sure it hasn't already been addressed in the issues list. You can check the issues [here](https://github.com/supergrecko/LeagueVoice/issues) 
+Before sending your issue, make sure it has not already been addressed in the issues list. You can check the issues [here](https://github.com/supergrecko/LeagueVoice/issues) 
 
 ## Legal
 
