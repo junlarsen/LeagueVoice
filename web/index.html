@@ -154,6 +154,7 @@
             })
             .catch((err) => {
                 start.disabled = false;
+                link.disabled = false;
                 note(`${err}`);
                 log(`Error: ${err}`);
             })
@@ -165,6 +166,7 @@
             app.link()
                 .then((res) => {
                     if (!res) link.disabled = false;
+                    if (res) start.disabled = false;
                 })
         } else {
             note("The app needs to be running.");
@@ -184,7 +186,12 @@
     app.on('notice', (msg) => {
         note(msg);
     });
-    
+
+    app.on('restart', () => {
+        start.disabled = false;
+        link.disabled = false;
+    })
+
 </script>
 
 </html>

@@ -38,8 +38,8 @@ class Application extends Events {
                                         })
                                         .catch(reject)
                                 } else {
-                                    this.emit('log', `Success: Started application.`);
                                     this.emit('log', `Notice: You need to link your accounts to use League Voice.`);
+                                    this.emit('restart');
                                     resolve(true);
                                 }
                             })
