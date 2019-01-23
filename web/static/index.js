@@ -1,5 +1,6 @@
 const LeagueClient = require('../../lib/lcu-client/lcu-client');
 const GoogleClient = require('../../lib/google-client/index');
+const Locate = require('../../lib/common/locate');
 
 const Events = require('events');
 
@@ -22,35 +23,32 @@ class Application extends Events {
      */
     connect() {
         return new Promise(async (resolve, reject) => {
-            this.League.start()
-                .then((res) => {
-                    if (res === true) {
-                        this.League.link.link()
-                            .then(linked => {
-                                if (!linked) {
-                                    this.League.listen.update('clientStates', 'selection', {
-                                        banChampion: "", banState: "NOT", origin: "EXIT", phase: "NOT",
-                                        primary: "", secondary: "", selectChampion: "", state: "NOT"
-                                    })
+            Locate().then(() => {
+                this.League.link.link()
+                    .then((linked) => {
+                        if (!linked) {
+                            this.League.listen.update('clientStates', 'selection', {
+                                banChampion: "", banState: "NOT", origin: "EXIT", phase: "NOT",
+                                primary: "", secondary: "", selectChampion: "", state: "NOT"
+                            })
+                                .then(() => {
+                                    this.League.start()
                                         .then(() => {
+
                                             this.emit('log', `Success: Started application.`);
                                             resolve(true);
                                         })
                                         .catch(reject)
-                                } else {
-                                    this.emit('log', `Notice: You need to link your accounts to use League Voice.`);
-                                    this.emit('restart');
-                                    resolve(true);
-                                }
-                            })
-                            .catch(reject);
-                    } else {
-                        reject(res);
-                    }
-                })
-                .catch((err) => {
-                    reject(err);
-                })
+                                })
+                                .catch(reject)
+                        } else {
+                            this.emit('log', `Notice: You need to link your accounts to use League Voice.`);
+                            this.emit('restart');
+                            resolve(true);
+                        }
+                    })
+            })
+                .catch(reject)
         })
     }
 
