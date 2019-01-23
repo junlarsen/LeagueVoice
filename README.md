@@ -31,6 +31,8 @@ The releases can be found [here](https://github.com/supergrecko/LeagueVoice/rele
 
 ## Overview
 
+[Here is a tiny video made to demonstrate some of the features and purposes for the League Voice action.](https://www.youtube.com/watch?v=lTtBugQ6mBA)
+
 #### Table of Contents
 
 - [What is League Voice](#what-is-league-voice)
@@ -168,9 +170,13 @@ Your League accounts needs to be linked with a Google Account. This procedure ca
 
 If your intended champion has been picked or banned the assistant will not perform any action and you will need to request it to pick/ban another champion.
 
+Tbe app is based entirely upon recognizing champion names. Please acknowledge that the assistants readings might not be accurate.
+
 > Doesn't start upon pressing start
 
 If you recently restarted your League Client make sure to restart your League Voice application as well.
+
+You need to be logged into the League Client to start League Voice.
 
 > The Google Assistant exits when I try to pick/ban a champion
 
