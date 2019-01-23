@@ -172,6 +172,10 @@ If your intended champion has been picked or banned the assistant will not perfo
 
 If you recently restarted your League Client make sure to restart your League Voice application as well.
 
+> The Google Assistant exits when I try to pick/ban a champion
+
+In order for the application to work successfully, you must first enter champion select before attempting to ask your Google Assistant to pick or ban for you.
+
 ###### Still having issues?
 
 If your issue is not addressed in the Common Issues article and if you can't resolve any of the error messages you can report this error by submitting an issue.
