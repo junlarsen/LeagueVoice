@@ -1,5 +1,7 @@
 # League Voice
 
+## This program was created as an entry to the League of Legends API Challenge 2018. The Google Action will not be publicly released and the code in the repository will not be maintained.
+
 Manage champion select with the power of your voice!
 
 ![League Voice](/web/static/app.png)
